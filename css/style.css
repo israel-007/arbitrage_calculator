@@ -1,0 +1,264 @@
+.flex {
+	display: flex;
+}
+
+.w-50 {
+	width: 50%;
+}
+
+.m-5px {
+	margin: 5px;
+}
+
+.odd,
+.amt {
+	height: 40px;
+	text-align: center;
+}
+
+.section {
+	margin-left: 30%;
+	margin-right: 30%;
+	/*				margin-top: 5%;*/
+	/*	background: white;*/
+	max-width: 500px;
+	/*				height: 612px;*/
+	/*	border-radius: 20px;*/
+
+	-webkit-animation: glowing 1s ease-in-out infinite alternate;
+	-moz-animation: glowing 1s ease-in-out infinite alternate;
+	animation: glowing 3s ease-in-out infinite alternate;
+
+	box-shadow: 0 0 5px 1px white;
+	/*
+				
+  				transition: box-shadow 10s ease-out;
+  				animation: spin 4s linear infinite;
+*/
+}
+
+.main-menu {
+	display: block;
+}
+
+@-webkit-keyframes glowing {
+	from {
+		/*					box-shadow: 0 0 10px #fff, 0 0 15px yellow, 0 0 20px pink, 0 0 25px green, 0 0 30px blue, 0 0 35px red;*/
+	}
+
+	to {
+		/*					box-shadow: 0 0 10px white, 0 0 15px wheat, 0 0 20px yellow, 0 0 25px pink, 0 0 30px yellow, 0 0 35px #fff;*/
+
+	}
+}
+
+.question_sec {
+	margin-left: 7%;
+	margin-right: 7%;
+	padding-top: 5%;
+	padding-bottom: 15%;
+	max-width: 100%;
+	height: auto;
+
+}
+
+.question_sec div {
+	font-size: 3em;
+	text-align: center;
+	background: white;
+	padding-bottom: 0px;
+	padding-top: 0px;
+	border-radius: 3px;
+	/*				box-shadow: 0 0 6px yellow;*/
+
+}
+
+.question_sec h1 {
+	display: block;
+	color: deepskyblue;
+	font-size: 3em;
+	font-family: cursive;
+	text-align: center;
+	background: white;
+	padding-bottom: 0px;
+	margin-top: 0px;
+	padding-top: 26px;
+	border-radius: 3px;
+	/*				box-shadow: 0 0 6px yellow;*/
+
+}
+
+.answers_sec {
+	margin-left: 7%;
+	margin-right: 5%;
+	padding-top: 5%;
+	max-width: 100%;
+	height: 50px;
+	display: flex;
+}
+
+.answers_sec .answer {
+	background: white;
+	text-align: center;
+	width: 100%;
+	/*				margin-top: 10px;*/
+	margin-right: 10px;
+	padding: 15px;
+	border-radius: 5px;
+}
+
+.meter {
+	height: 10px;
+	<em >
+	/* Can be anything */
+	</em > position: relative;
+	background: #555;
+	border-radius: 5px;
+	padding: 0px;
+	box-shadow: inset 0 -1px 1px rgba(255, 255, 255, 0.3);
+	margin-right: 35px;
+	margin-left: 35px;
+}
+
+.meter > span {
+	display: block;
+	height: 100%;
+	border-top-right-radius: 8px;
+	border-bottom-right-radius: 8px;
+	border-top-left-radius: 20px;
+	border-bottom-left-radius: 20px;
+	/*  				background-color: rgb(43,194,83);*/
+	background-color: #fc4d4d;
+	background-image: linear-gradient(center bottom,
+			rgb(43, 194, 83) 37%,
+			rgb(84, 240, 84) 69%);
+	box-shadow:
+		inset 0 2px 9px rgba(255, 255, 255, 0.3),
+		inset 0 -2px 6px rgba(0, 0, 0, 0.4);
+	position: relative;
+	overflow: hidden;
+}
+
+.answers_sec .answer {
+	color: white;
+	/*				background: rgb(43,194,83);*/
+	/*				box-shadow: 0 0 6px yellow;*/
+}
+
+.answer {}
+
+.answers_stat {
+	margin-left: 7%;
+	margin-right: 5%;
+	padding-top: 0%;
+	max-width: 100%;
+	height: 50px;
+	display: flex;
+}
+
+.answers_stat :first-child {
+	color: black;
+	text-align: center;
+	width: 100%;
+	margin-right: 10px;
+	padding: 15px;
+	border-radius: 5px;
+}
+
+.answers_stat :last-child {
+	color: black;
+	text-align: center;
+	width: 100%;
+	margin-right: 10px;
+	padding: 15px;
+	border-radius: 5px;
+}
+
+.start-menu {
+	/*				background: grey;*/
+	padding-top: 65%;
+	margin-left: 30%;
+	margin-right: 30%;
+}
+
+.start-btn:focus {
+	background: black;
+	outline: -webkit-focus-ring-color auto 0px;
+	box-shadow: 5px 8px 5px 1px #222020;
+}
+
+.start-btn {
+	font-size: 2em;
+	color: white;
+	background: rgb(43, 194, 83);
+	border: 0px;
+	padding: 10px;
+	border-radius: 10px;
+	width: 100%;
+	text-align: center;
+	box-shadow: 5px 8px 5px 1px rgb(54, 148, 77);
+
+
+
+}
+
+.again-menu {
+	display: none;
+	padding-top: 0%;
+	margin-left: 30%;
+	margin-right: 30%;
+}
+
+.again-btn:focus {
+	/*				background: black;*/
+	outline: -webkit-focus-ring-color auto 0px;
+	/*				box-shadow: 5px 8px 5px 1px black;*/
+}
+
+.again-btn {
+	font-size: 2em;
+	color: white;
+	background: red;
+	border: 0px;
+	padding: 10px;
+	border-radius: 10px;
+	width: 100%;
+	text-align: center;
+	box-shadow: 5px 8px 5px 1px #b02c2c;
+
+
+
+}
+
+@media (min-width: 220px) and (max-width: 399px) {
+
+	.section {
+		margin-left: 2%;
+		margin-right: 2%;
+	}
+
+
+}
+
+@media (min-width: 400px) {
+
+	.section {
+		margin-left: 2%;
+		margin-right: 2%;
+		height: 785px;
+	}
+
+
+}
+
+@media (min-width: 766px) {
+
+	.section {
+		/*				margin-top: 8%;*/
+		margin-left: 30%;
+		margin-right: 30%;
+		/*				height: 700px;*/
+	}
+
+
+}

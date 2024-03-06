@@ -12,6 +12,6 @@ You can bet on both draw and away win using the calculator to calculate how much
 
 # NOTE
 
-It is possible both outcome fails as you cant always be 100% right on sport beting.
+It is possible both outcome fails as you can't always be 100% right on sport betting.
 
 ## Bet Wisely

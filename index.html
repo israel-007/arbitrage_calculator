@@ -1,451 +1,176 @@
-<!DOCTYPE html>
-<html>
+<!doctype html>
+<html lang="en">
 
 <head>
-	<meta charset="UTF-8">
-	<meta name="viewport"
-		content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, viewport-fit=cover">
-	<!--        <meta name="viewport" content="width = device-width, initial-scale = 1.0">-->
-	<meta http-equiv="X-UA-Compatible" content="ie=edge">
-	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap">
-	<link rel="stylesheet" href="css/bootstrap.min.css">
-	<title> Odds Calculatioin </title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Universal Arbitrage Calculator — 2/3/4-way</title>
 
-	<style>
-		body {
-			font-family: "Nunito";
-		}
-
-		.section-padding {
-			padding-top: 100px;
-			padding-bottom: 100px;
-		}
-
-		.border-r-5 {
-			border-radius: 10px;
-		}
-
-		input {
-			background: #ffffff6e !important;
-			text-align: center;
-		}
-
-		.font-2em {
-			font-size: 2em;
-		}
-
-		@media (max-width: 767px){
-				
-		.section-padding {
-			padding-top: 50px;
-			padding-bottom: 100px;
-		}
-
-		.title{
-			font-size: 1.3em !important;
-		}
-			
-	
-			}
-	</style>
-
+    <link rel="stylesheet" href="css/style.css">
 </head>
 
-<!-- <body style="background: #050c33;"> -->
-
 <body>
-
-	<section class="container section-padding">
-
-		<div class="row row justify-content-between align-items-center">
-
-			<div class="col-md-6">
-
-				<div class="container intro-body">
-
-					<div class="tittle">
-						<h1 class="fw-bold mb-3 text-dark-400 title"><b class="text-primary"> Abritage </b> Bet Calculator
-						</h1>
-					</div>
-
-					<p class="mb-4 h6">
-						You can use this calculator to calculate abritage opportunies is sport games. This was build for
-						educational purpose
-						only.
-					</p>
-
-					<div class="gap-2 d-sm-block intro-btn mb-4 mb-lg-0">
-						<button class="btn btn-primary me-sm-4" id="way" data-way="2" type="button">2 Way Bet</button>
-						<button class="btn btn-outline btn-outline-primary" id="way" data-way="3" type="button">3 Way
-							Bet</button>
-					</div>
-
-				</div>
-
-			</div>
-
-
-			<div class="col-md-6 2-way">
-
-				<div class="mt-3">
-
-					<div class="bg-opacity-10 p-4 m-3 bg-primary border-r-5 main-menu mt-3 position-relative">
-
-						<div class="row sec_1">
-
-							<div class="col-6">
-								<input type="number" class="form-control odd" id="two_way_odd_1" placeholder="First odd">
-							</div>
-
-							<div class="col-6">
-								<input type="number" class="form-control odd" id="two_way_odd_2" placeholder="Second odd">
-							</div>
-
-							<div class="col-12 mt-5 d-flex justify-content-center">
-								<input type="number" class="form-control two_way_amt w-50" id="two_way_amt" placeholder="Amount to bet">
-							</div>
-
-							<div class="mt-2"></div>
-
-							<div class="mt-5 text-center">
-								<div class="font-2em" id="two_way_percent">0</div>
-								<small>Percentage</small>
-							</div>
-
-						</div>
-
-						<div class="row sec_2 mt-5">
-
-							<div class="col-6">
-
-								Team 1 BET( <b id="bet_two_way_amt_1">0</b> )
-
-								<br><br>
-
-								Profit <b id="prof_two_way_amt_1">0</b>
-
-							</div>
-
-							<div class="col-6 text-end">
-
-								Team 2 BET( <b id="bet_two_way_amt_2">0</b> )
-
-								<br><br>
-
-								Profit <b id="prof_two_way_amt_2">0</b>
-							</div>
-
-						</div>
-
-					</div>
-
-				</div>
-
-			</div>
-
-			<div class="col-md-6 3-way d-none">
-
-				<div class="mt-3">
-
-					<div class="bg-opacity-10 p-4 m-3 bg-primary border-r-5 main-menu mt-3">
-
-						<div class="row sec_1">
-
-							<div class="col-4">
-								<input type="number" class="form-control odd" id="three_way_odd_1" placeholder="First Odd">
-							</div>
-
-							<div class="col-4">
-								<input type="number" class="form-control odd" id="three_way_odd_2" placeholder="Second Odd">
-							</div>
-
-							<div class="col-4">
-								<input type="number" class="form-control odd" id="three_way_odd_3" placeholder="Third Odd">
-							</div>
-
-							<div class="col-12 mt-5 d-flex justify-content-center">
-								<input type="number" class="form-control three_way_amt w-50" id="three_way_amt" placeholder="Amount to bet">
-							</div>
-
-							<div class="mt-2"></div>
-
-							<div class="mt-5 text-center">
-								<div class="font-2em" id="three_way_percent">0</div>
-								<small>Percentage</small>
-							</div>
-
-						</div>
-
-						<div class="row sec_2 mt-5">
-
-							<div class="col-4">
-
-								Team 1 BET( <b id="bet_three_way_amt_1">0</b> )
-
-								<br><br>
-
-								Profit <b id="prof_three_way_amt_1">0</b>
-
-							</div>
-
-							<div class="col-4 text-center">
-
-								Team 2 BET( <b id="bet_three_way_amt_2">0</b> )
-
-								<br><br>
-
-								Profit <b id="prof_three_way_amt_2">0</b>
-							</div>
-
-							<div class="col-4 text-end">
-
-								Team 3 BET( <b id="bet_three_way_amt_3">0</b> )
-
-								<br><br>
-
-								Profit <b id="prof_three_way_amt_3">0</b>
-							</div>
-
-						</div>
-
-					</div>
-
-				</div>
-
-			</div>
-
-		</div>
-
-	</section>
-
-
-	<script src="js/jquery.min.js"></script>
-
-	<script>
-
-		$(document).on('click', '#way', function () {
-
-				let id = $(this).data('way');
-
-				if (id == 2) {
-
-					$('.2-way').removeClass('d-none');
-					$('.3-way').addClass('d-none');
-
-				} else if (id == 3) {
-
-					$('.2-way').addClass('d-none');
-					$('.3-way').removeClass('d-none');
-
-				}
-
-			});
-
-		// TWO WAY
-
-		$(document).on('keyup', '#two_way_odd_1, #two_way_odd_2', function () {
-
-			let len1 = 0;
-			let len2 = 0;
-
-			($('#two_way_odd_1').val().length) ? len1 = $('#two_way_odd_1').val().length : len1 = 0;
-
-			($('#two_way_odd_2').val().length) ? len2 = $('#two_way_odd_2').val().length : len2 = 0;
-
-			var len = len1 + len2;
-
-			if (len > 3) {
-
-				let odd1 = 0;
-				let odd2 = 0;
-
-				($('#two_way_odd_1').val()) ? odd1 = $('#two_way_odd_1').val() : odd1 = 0;
-
-				($('#two_way_odd_2').val()) ? odd2 = $('#two_way_odd_2').val() : odd2 = 0;
-
-				var calc = (1 / odd1) + (1 / odd2);
-
-				if (calc > 1) {
-
-					$('#two_way_percent').html('<b class="text-danger">' + calc.toFixed(4) + '</b>');
-
-				} else {
-
-					$('#two_way_percent').html('<b class="text-primary">' + calc.toFixed(4) + '</b>');
-
-				}
-
-			}
-		});
-
-		$(document).on('keyup', '#two_way_odd_1, #two_way_amt, #two_way_odd_2', function () {
-
-			let odd1 = 0;
-			let odd2 = 0;
-			let two_way_amt = 0;
-
-			($('#two_way_odd_1').val()) ? odd1 = $('#two_way_odd_1').val() : odd1 = 0;
-
-			($('#two_way_odd_2').val()) ? odd2 = $('#two_way_odd_2').val() : odd2 = 0;
-
-			($('#two_way_amt').val()) ? two_way_amt = $('#two_way_amt').val() : two_way_amt = 0;
-
-			let calc = 1 / odd1 + 1 / odd2;
-
-			let team1 = two_way_amt / (calc * odd1);
-			let team1_win = (team1 * odd1) - two_way_amt;
-
-			let team2 = two_way_amt / (calc * odd2);
-			let team2_win = (team2 * odd2) - two_way_amt;
-
-			let len1 = $('#two_way_odd_1').val().length;
-			let len2 = $('#two_way_odd_2').val().length;
-
-			let len = len1 + len2;
-
-			if (len > 3) {
-
-				if (team1_win > 1) {
-
-					$('#bet_two_way_amt_1').text(parseFloat(team1, 10).toFixed(2).replace(/(\d)(?=(\d{3})+\.)/g, "$1,").toString());
-
-					$('#prof_two_way_amt_1').text(parseFloat(team2_win, 10).toFixed(2).replace(/(\d)(?=(\d{3})+\.)/g, "$1,").toString());
-
-					$('#bet_two_way_amt_2').text(parseFloat(team2, 10).toFixed(2).replace(/(\d)(?=(\d{3})+\.)/g, "$1,").toString());
-
-					$('#prof_two_way_amt_2').text(parseFloat(team2_win, 10).toFixed(2).replace(/(\d)(?=(\d{3})+\.)/g, "$1,").toString());
-
-				} else {
-
-					$('#bet_two_way_amt_1').text('0');
-
-					$('#bet_two_way_amt_2').text('0');
-
-					$('#prof_two_way_amt_1').text('0');
-
-					$('#prof_two_way_amt_2').text('0');
-
-				}
-			}
-
-		});
-
-		// THRREE WAY
-
-		$(document).on('keyup', '#three_way_odd_1, #three_way_odd_2, #three_way_odd_3', function () {
-
-			let len1 = 0;
-			let len2 = 0;
-			let len3 = 0;
-
-			($('#three_way_odd_1').val().length) ? len1 = $('#three_way_odd_1').val().length : len1 = 0;
-
-			($('#three_way_odd_2').val().length) ? len2 = $('#three_way_odd_2').val().length : len2 = 0;
-
-			($('#three_way_odd_3').val().length) ? len3 = $('#three_way_odd_3').val().length : len3 = 0;
-
-			var len = len1 + len2 + len3;
-
-			if (len > 3) {
-
-				let odd1 = 0;
-				let odd2 = 0;
-				let odd3 = 0;
-
-				($('#three_way_odd_1').val()) ? odd1 = $('#three_way_odd_1').val() : odd1 = 0;
-
-				($('#three_way_odd_2').val()) ? odd2 = $('#three_way_odd_2').val() : odd2 = 0;
-
-				($('#three_way_odd_3').val()) ? odd3 = $('#three_way_odd_3').val() : odd3 = 0;
-
-				let calc = (1 / odd1) + (1 / odd2) + (1 / odd3);
-
-				if (calc != 'Infinity') {
-
-					if (calc > 1) {
-
-						$('#three_way_percent').html('<b class="text-danger">' + calc.toFixed(4) + '</b>');
-
-					} else {
-
-						$('#three_way_percent').html('<b class="text-primary">' + calc.toFixed(4) + '</b>');
-
-					}
-
-				}
-
-			}
-		});
-
-		$(document).on('keyup', '#three_way_odd_1, #three_way_amt, #three_way_odd_2', function () {
-
-			let odd1 = 0;
-			let odd2 = 0;
-			let odd3 = 0;
-			let three_way_amt = 0;
-
-			($('#three_way_odd_1').val()) ? odd1 = $('#three_way_odd_1').val() : odd1 = 0;
-
-			($('#three_way_odd_2').val()) ? odd2 = $('#three_way_odd_2').val() : odd2 = 0;
-
-			($('#three_way_odd_3').val()) ? odd3 = $('#three_way_odd_3').val() : odd3 = 0;
-
-			($('#three_way_amt').val()) ? three_way_amt = $('#three_way_amt').val() : three_way_amt = 0;
-
-			let calc = (1 / odd1) + (1 / odd2) + (1 / odd3);
-
-			let team1 = three_way_amt / (calc * odd1);
-			let team1_win = (team1 * odd1) - three_way_amt;
-
-			let team2 = three_way_amt / (calc * odd2);
-			let team2_win = (team2 * odd2) - three_way_amt;
-
-			let team3 = three_way_amt / (calc * odd3);
-			let team3_win = (team3 * odd3) - three_way_amt;
-
-			let len1 = $('#three_way_odd_1').val().length;
-			let len2 = $('#three_way_odd_2').val().length;
-			let len3 = $('#three_way_odd_3').val().length;
-
-			let len = len1 + len2 + len3;
-
-			if (len > 3) {
-
-				if (team1_win > 1) {
-
-					$('#bet_three_way_amt_1').text(parseFloat(team1, 10).toFixed(2).replace(/(\d)(?=(\d{3})+\.)/g, "$1,").toString());
-
-					$('#prof_three_way_amt_1').text(parseFloat(team2_win, 10).toFixed(2).replace(/(\d)(?=(\d{3})+\.)/g, "$1,").toString());
-
-					$('#bet_three_way_amt_2').text(parseFloat(team2, 10).toFixed(2).replace(/(\d)(?=(\d{3})+\.)/g, "$1,").toString());
-
-					$('#prof_three_way_amt_2').text(parseFloat(team2_win, 10).toFixed(2).replace(/(\d)(?=(\d{3})+\.)/g, "$1,").toString());
-
-					$('#bet_three_way_amt_3').text(parseFloat(team3, 10).toFixed(2).replace(/(\d)(?=(\d{3})+\.)/g, "$1,").toString());
-
-					$('#prof_three_way_amt_3').text(parseFloat(team3_win, 10).toFixed(2).replace(/(\d)(?=(\d{3})+\.)/g, "$1,").toString());
-
-				} else {
-
-					$('#bet_three_way_amt_1').text('0');
-
-					$('#bet_three_way_amt_2').text('0');
-
-					$('#bet_three_way_amt_3').text('0');
-
-					$('#prof_three_way_amt_1').text('0');
-
-					$('#prof_three_way_amt_2').text('0');
-
-					$('#prof_three_way_amt_3').text('0');
-
-				}
-			}
-
-		});
-
-	</script>
-
+    <main class="app" role="main" aria-labelledby="title">
+        <header>
+            <div>
+                <h1 id="title">Universal Arbitrage Calculator</h1>
+                <div class="tiny">2-way, 3-way and experimental 4-way markets — supports stake splitting & history</div>
+            </div>
+
+            <div style="display:flex; gap:8px; align-items:center;">
+                <button class="btn ghost" id="aboutBtn" title="About this tool">About</button>
+                <button class="btn ghost" id="historyBtn" title="View saved calculations">History</button>
+            </div>
+        </header>
+
+        <section class="panel">
+            <div class="controls">
+                <div style="align-items:center;">
+                    <label class="small" for="mode">Mode</label>
+                    <select id="mode" aria-label="Select mode">
+                        <option value="2">2-way (e.g. Tennis / Basketball)</option>
+                        <option value="3" selected>3-way (e.g. Football 1X2)</option>
+                        <option value="4">4-way (experimental)</option>
+                    </select>
+                </div>
+
+                <div style="flex:1;">
+                    <label class="small" for="stake">Total Stake</label>
+                    <input id="stake" type="number" step="0.01" min="0" placeholder="Total stake (e.g. 100)">
+                </div>
+
+                <div>
+                    <label class="small">Quick examples</label>
+                    <select id="example">
+                        <option value="">— pick example —</option>
+                        <option value='{"mode":2,"odds":[1.95,3.05],"stake":100}'>Tennis: 1.95 / 3.05</option>
+                        <option value='{"mode":3,"odds":[2.90,3.40,3.60],"stake":100}'>Football: 2.90 / 3.40 / 3.60
+                        </option>
+                        <option value='{"mode":4,"odds":[3.20,4.50,2.80,5.60],"stake":100}'>4-way: experiment</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="grid" id="oddsGrid" aria-live="polite">
+                <!-- dynamic inputs will be injected here -->
+            </div>
+
+            <div class="results" aria-hidden="false">
+                <div class="result-left">
+                    <div class="stat" style="margin-bottom:10px">
+                        <div><small class="muted">Implied Sum</small><br><b id="impliedSum">—</b></div>
+                        <div style="text-align:right"><small class="muted">Overround</small><br><b
+                                id="overroundPercent">—</b></div>
+                    </div>
+
+                    <div class="panel" style="padding:10px;">
+                        <div class="muted">Bets</div>
+                        <div class="bets" id="betsContainer">
+                            <!-- bet rows -->
+                        </div>
+                    </div>
+
+                    <div style="margin-top:10px" class="muted">Notes: decimals only. For football use 3-way;
+                        tennis/basketball use 2-way. 4-way is experimental and rarely profitable.</div>
+                </div>
+
+                <div class="result-right">
+                    <div id="statusBox" class="status bad">Enter odds and stake</div>
+
+                    <div class="panel" style="text-align:center;">
+                        <div class="muted">Guaranteed Payout (approx)</div>
+                        <div style="font-size:20px; font-weight:700; margin-top:6px" id="guaranteedPayout">—</div>
+                        <div class="muted" style="margin-top:6px">Profit / ROI</div>
+                        <div style="font-size:18px; font-weight:700; margin-top:6px" id="profitValue">—</div>
+                    </div>
+
+                    <div style="display:flex;flex-direction:column; gap:8px;">
+                        <button class="btn ghost" id="calcBtn">Calculate</button>
+                        <div style="display:flex; gap:8px;">
+                            <button class="btn primary" id="saveBtn">Save Calculation</button>
+                            <button class="btn warn" id="clearBtn">Clear Inputs</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Popup Notification -->
+    <div id="popupNotification" class="popup-notification" style="display:none;"></div>
+
+    <!-- About modal -->
+    <div id="aboutModal" class="modal-backdrop" data-open="false" aria-hidden="true">
+        <div class="modal" role="dialog" aria-modal="true" aria-labelledby="aboutTitle" aria-describedby="aboutDesc">
+            <!-- <button class="modal-close" id="aboutClose" aria-label="Close information dialog">&times;</button> -->
+
+            <header class="modal-header">
+                <h3 id="aboutTitle">What this calculator does</h3>
+            </header>
+
+            <section id="aboutDesc" class="modal-body">
+                <p>
+                    This tool checks whether a set of decimal odds across <strong>2, 3 or 4 mutually exclusive
+                        outcomes</strong> contains an
+                    <strong>arbitrage</strong>.
+                    It calculates the implied probabilities (<code>1/odds</code>), sums those probabilities, and — if
+                    the
+                    sum &lt; 1 — shows
+                    a stake split that (in theory) returns your capital plus a guaranteed small profit regardless of
+                    which
+                    outcome wins.
+                </p>
+
+                <h4>Examples</h4>
+                <ul class="examples">
+                    <li><strong>2-way (Tennis/Basketball):</strong> Player A 1.95 vs Player B 2.05 — use 2-way mode.
+                    </li>
+                    <li>
+                        <strong>3-way (Football 1X2):</strong> Home 2.10 — Draw 3.40 — Away 3.60.<br>
+                        If <code>1/2.10 + 1/3.40 + 1/3.60 &lt; 1</code>, you can split stake across the three bets to
+                        lock
+                        profit.
+                    </li>
+                    <li>
+                        <strong>4-way (experimental):</strong> Rare markets with four mutually exclusive outcomes (e.g.
+                        some
+                        set-score markets).
+                        These are usually very tight.
+                    </li>
+                </ul>
+
+                <p class="muted">
+                    <strong>Caveats:</strong> Execution risk, stake limits, commission, voided markets (retirements /
+                    abandoned matches)
+                    and price movement can all break an arb in practice. Always verify settlement rules &amp; max stakes
+                    at
+                    each bookmaker.
+                </p>
+            </section>
+
+            <footer class="modal-footer">
+                <button id="aboutClose" class="btn aboutClose">Got it</button>
+            </footer>
+        </div>
+    </div>
+
+    <!-- History modal -->
+    <div id="historyModal" class="modal-backdrop" aria-hidden="true">
+        <div class="modal" role="dialog" aria-modal="true">
+            <div style="position:relative;">
+                <span class="close" id="historyClose" title="Close">&times;</span>
+                <h3>Saved Calculations</h3>
+                <div style="display:flex; gap:8px; margin:10px 0 14px;">
+                    <button class="btn ghost" id="exportBtn">Export CSV</button>
+                    <button class="btn ghost" id="clearHistoryBtn">Clear History</button>
+                </div>
+                <div class="history-list" id="historyList">
+                    <!-- items -->
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="js/app.min.js"></script>
 </body>
 
 </html>
